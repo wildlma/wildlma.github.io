@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NDKMPMDH"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-55NDKMPMDH');
+	</script>
+
+  <meta charset="utf-8">
+  <meta name="description" content="PMP">
+  <meta name="keywords" content="Legged Robot, Mobile Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Long Horizon Loco-Manipulation in the Wild</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="./static/js/ajax.googleapis.com_ajax_libs_jquery_3.5.1_jquery.min.js"></script>
+  <script src="./static/js/isInViewport.min.js"></script>
+  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="icon" href="./resources/favicon.ico">
+  
+  <script src="https://kit.fontawesome.com/006a5775d5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Related Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://geff-b1.github.io/">
+              GeFF: Generalizable Feature Fields for Manipulation
+            </a>
+            <a class="navbar-item" href="https://wholebody-b1.github.io/">
+              VBC: Visual Whole-Body Control
+            </a>
+            <a class="navbar-item" href="https://robot-tv.github.io">
+              Open-TeleVision
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+             <span style="font-weight: normal;">WildLMA: Long Horizon <b>L</b>oco-<b>MA</b>nipulation in the <b>Wild</b>
+          </h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="https://rogerqi.github.io/">Ri-Zhao Qiu*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://yuchen-song.github.io/">Yuchen Song*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://xuanbinpeng.github.io/">Xuanbin Peng*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://sai-aneesh.github.io/">Sai Aneesh Suryadevara</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+              <a href="https://www.episodeyang.com/">Ge Yang</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://minghuanliu.com/">Minghuan Liu</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://jimazeyu.github.io/">Mazeyu Ji</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.linkedin.com/in/chengzhe-jia-ba45902a1">Chengzhe Jia</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://rchalyang.github.io/">Ruihan Yang</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://maureenzou.github.io/">Xueyan Zou</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://xiaolonw.github.io/">Xiaolong Wang</a>
+              <br><br>
+              <img src="./resources/UCSanDiegoLogo-BlueGold.png" width="20%" style="margin-right: 100px;"></img>    <img src="./resources/mit-logo.png" width="8%" style="margin-right: 100px;"></img>    <img src="./resources/nv.png" width="20%"></img> <br><br>
+            </span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/xDd1t3h3aAY" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>YouTube</span>
+                </a>
+              </span>
+
+			        <span class="link-block">
+                <a href="https://cad.onshape.com/documents/a1c5aa72dc0984d718411e43/w/b704c91edc8536d5d2c27cae/e/e40be0896868f94b025ed97b?renderMode=0&uiState=671d7dacb8d1f63fc29270fd"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-wrench"></i>
+                    </span>
+                    <span>Hardware</span>
+                </a>
+              </span>
+
+              <!-- <span class="link-block">
+                <a href="https://www.bilibili.com/"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-bilibili"></i>
+                    </span>
+                    <span>Bilibili</span>
+                </a>
+              </span> -->
+              
+              <!-- <span class="link-block">
+                <a href="https://x.com/xuxin_cheng" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Summary</span>
+                </a>
+              </span> -->
+
+              <!-- <span class="link-block">
+                <a href="https://github.com/OpenTeleVision/TeleVision" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>TV Code</span>
+                </a>
+              </span> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom: 0">
+  <div class="container">
+    <div id="method_video" class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds no-bottom-padding">
+        <center>
+          <video playsinline autoplay loop muted controls src="resources/intro.mp4" width="100%" preload="metadata"
+            style="border-radius:10px;"></video>
+        </center>
+      </div>
+    </div>
+
+    <h4 style="text-align: center;">TL;DR: Long horizon loco-manipulation with LLM planner and wholebody imitation
+      learning skill sets</h4>
+  </div>
+</section>
+
+
+<section class="section">
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;"><b>Long-Horizon</b> Tasks Demonstration</h2>
+          <h5 style="text-align: center; font-weight: normal;">We chain imitation learning skills using LLM planner.</h5>
+          <br>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col">
+                  <center>
+                    <h5>"Dispose a cup of water on the table"</h5>
+                    <video playsinline autoplay loop muted controls src="resources/Long-Horiozn/dispose.mp4" width="60%"
+                      preload="metadata" style="border-radius:10px;"></video>
+                  </center>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                  <center>
+                    <h5>"Pickup the takeout food delivery"</h5>
+                    <video playsinline autoplay loop muted controls src="resources/Long-Horiozn/takeout.mp4" width="60%"
+                      preload="metadata" style="border-radius:10px;"></video>
+                  </center>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                  <center>
+                    <h5>"Clean the spilt juice on the table"</h5>
+                    <video playsinline autoplay loop muted controls src="resources/Long-Horiozn/wipe.mp4" width="60%"
+                      preload="metadata" style="border-radius:10px;"></video>
+                  </center>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </div> 
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;"><b>WildLMa-Skill</b>: In-the-wild Skill Learning</h2>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col">
+                    <h5>Grasp the bottle on the table.</h5>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_bottle.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5>Pick up the trash on the ground.</h5>
+                  <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_outdoor.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+                <div class="col">
+                    <h5>Grasp the water bottle on the ground.</h5>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_outdoor_1.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5>Pick up the wallet on the concrete ledge.</h5>
+                  <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_outdoor_3.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                    <h5>Press the button to open the door.</h5>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/open_door.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5>Call an elevator.</h5>
+                  <video autoplay muted loop playsinline controls src="resources/Single_skill/press_button_elevator.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                    <h5>Enter the office.</h5>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/push_door.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5>Rearrange the book on the bookshelf.</h5>
+                  <video autoplay muted loop playsinline controls src="resources/Single_skill/rearrange_shelf.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+            </td>
+          </tr>
+        </div> 
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;"><b>WildLMa-Skill</b>: Generalizabilty</h2>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col">
+                    <h3><strong>Task 1:</strong> Grasp the bottle on the table.</h3>
+                    <h4><em>In distribution</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_bottle.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+                <div class="col">
+                    <h5><em>Out-of distribution</em>: Different Color</h5>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_bottle_color.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5><em>Out-of distribution</em>: Transparent</h5>
+                  <video autoplay muted loop playsinline controls src="resources/Single_skill/grasp_bottle_shape.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                <div class="col">
+                    <h3><strong>Task 2:</strong> Press the button to open the door.</h3>
+                    <h4><em>In distribution</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/open_door.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+                <div class="col">
+                    <h5><em>Out-of distribution</em>: Different Background</h5>
+                    <video autoplay muted loop playsinline controls src="resources/Single_skill/open_door_front.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5><em>Out-of distribution</em>: Completely Different Scene and Lighting Conditions</h5>
+                  <video autoplay muted loop playsinline controls src="resources/Single_skill/open_door_side.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              </div>
+            </div>
+            </td>
+          </tr>
+        </div> 
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;"><b>Whole-body Controller</b> for Efficient Data Collection</h2>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col">
+                    <h3>Extended Workspace and end-effector-centric Tele-operation.</h3>
+                    <video autoplay muted loop playsinline controls src="./resources/WBC/wbc.mp4" width="65%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+              <br>
+
+              <center>
+                <h3>Extended Workspace and end-effector-centric Tele-operation.</h3>
+              </center>
+              <div class="row">
+                <div class="col">
+                    <h5><strong>Ours</strong></h5>
+                    <video autoplay muted loop playsinline controls src="resources/WBC/ours.mp4" width="100%"
+                           style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5>Arm-only Flat Base</h5>
+                  <video autoplay muted loop playsinline controls src="resources/WBC/flat.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+                <div class="col">
+                  <h5>Decoupled Model-based</h5>
+                  <video autoplay muted loop playsinline controls src="resources/WBC/decouped.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                <div class="col">
+                    <h3><strong>More Qualitative Teleop Results</strong>.</h3>
+                    <h4><em>"Clean up the coke can."</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/Long_Teleop/cafe_.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                    <h4><em>"Pick the ball and place it into the basket."</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/Long_Teleop/outdoor_ball.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                    <h4><em>"Good boy, hand over the ball for me."</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/Long_Teleop/human_dog.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                    <h4><em>"Hey, I am thirsty, find something in the fridge."</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/single_teleop/open_fridge.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                    <h4><em>"Please heat it up."</em></h4>
+                    <video autoplay muted loop playsinline controls src="resources/single_teleop/open_microwave.mp4" width="50%"
+                           style="border-radius:10px; "></video>
+                </div>
+              </div>
+
+              </div>
+            </div>
+            </td>
+          </tr>
+        </div> 
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            'In-the-wild' mobile manipulation aims to deploy robots in diverse real-world environments, which requires the robot to (1) have skills that generalize across object configurations; (2) be capable of long-horizon task execution in diverse environments; and (3) perform complex manipulation beyond pick-and-place. Quadruped robots with manipulators hold promise for extending the workspace and enabling robust locomotion, but existing results do not investigate such a capability. This paper proposes WildLMa with three components to address these issues: (1) a learned low-level controller for VR-enabled whole-body teleoperation and traversability; (2) WildLMa-Skill — a library of generalizable visuomotor skills acquired via imitation learning or an analytical planner, and (3) WildLMa-Planner — an LLM planner that interfaces and coordinates these skills. WildLMa exploits CLIP for language-conditioned imitation learning that empirically generalizes to objects unseen in training demonstrations. We then show these skills can be effectively interfaced with an LLM planner for autonomous long-horizon execution. Besides extensive quantitative evaluation, we qualitatively demonstrate practical robot applications, such as cleaning up trash in university hallways or outdoor terrains, operating articulated objects, and rearranging items on a bookshelf.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="titile">BibTeX</h2>
+    <pre><code>
+@article{tbd,
+    title={tbd},
+    author={tbd},
+    journal={tbd},
+    year={2024}
+}
+</code></pre>
+  </div>
+</section>
+
+
+</body>
+
+<script>
+  var mainLoopId = setInterval(function(){
+        $('video').not('#teaser').each(function(){
+      if ($(this).is(":in-viewport")) {
+          $(this)[0].play();
+      } else {
+          $(this)[0].pause();
+      }
+      })
+    },200);
+</script>
+
+</html>
