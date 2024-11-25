@@ -106,7 +106,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="" target="_blank"
+                <a href="resources/WildLMa.pdf" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -115,7 +115,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/" target="_blank"
+                <a href="https://arxiv.org/abs/2411.15131" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -165,14 +165,14 @@
                 </a>
               </span> -->
 
-              <!-- <span class="link-block">
-                <a href="https://github.com/OpenTeleVision/TeleVision" class="external-link button is-normal is-rounded is-dark" target="_blank">
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark" target="_blank">
                   <span class="icon">
                     <i class="fab fa-github"></i>
                   </span>
-                  <span>TV Code</span>
+                  <span>Code (Coming soon)</span>
                 </a>
-              </span> -->
+              </span>
         </div>
       </div>
     </div>
@@ -195,8 +195,21 @@
   </div>
 </section>
 
+  <section class="section">
+    <div class="container">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <h2 class="title is-2">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              'In-the-wild' mobile manipulation aims to deploy robots in diverse real-world environments, which requires the robot to (1) have skills that generalize across object configurations; (2) be capable of long-horizon task execution in diverse environments; and (3) perform complex manipulation beyond pick-and-place. Quadruped robots with manipulators hold promise for extending the workspace and enabling robust locomotion, but existing results do not investigate such a capability. This paper proposes WildLMa with three components to address these issues: (1) a learned low-level controller for VR-enabled whole-body teleoperation and traversability; (2) WildLMa-Skill — a library of generalizable visuomotor skills acquired via imitation learning or an analytical planner, and (3) WildLMa-Planner — an LLM planner that interfaces and coordinates these skills. WildLMa exploits CLIP for language-conditioned imitation learning that empirically generalizes to objects unseen in training demonstrations. We then show these skills can be effectively interfaced with an LLM planner for autonomous long-horizon execution. Besides extensive quantitative evaluation, we qualitatively demonstrate practical robot applications, such as cleaning up trash in university hallways or outdoor terrains, operating articulated objects, and rearranging items on a bookshelf.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<section class="section">
 
   <section class="section">
     <div class="container">
@@ -381,7 +394,7 @@
 
                 </div>
                 <div class="col">
-                  <h5><em>Out-of distribution</em>: Completely Different Scene and Lighting Conditions</h5>
+                  <h5><em>Out-of distribution</em>: Different Light</h5>
                   <video autoplay muted loop playsinline controls src="resources/Single_skill/open_door_side.mp4" width="100%"
                          style="border-radius:10px; "></video>
 
@@ -439,7 +452,7 @@
 
               <br>
 
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col">
                     <h3><strong>More Qualitative Teleop Results</strong>.</h3>
                     <h4><em>"Clean up the coke can."</em></h4>
@@ -478,7 +491,7 @@
                     <video autoplay muted loop playsinline controls src="resources/single_teleop/open_microwave.mp4" width="50%"
                            style="border-radius:10px; "></video>
                 </div>
-              </div>
+              </div> -->
 
               </div>
             </div>
@@ -489,20 +502,6 @@
     </div>
   </section>
 
-  <div class="container">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-two-thirds">
-        <h2 class="title is-2">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            'In-the-wild' mobile manipulation aims to deploy robots in diverse real-world environments, which requires the robot to (1) have skills that generalize across object configurations; (2) be capable of long-horizon task execution in diverse environments; and (3) perform complex manipulation beyond pick-and-place. Quadruped robots with manipulators hold promise for extending the workspace and enabling robust locomotion, but existing results do not investigate such a capability. This paper proposes WildLMa with three components to address these issues: (1) a learned low-level controller for VR-enabled whole-body teleoperation and traversability; (2) WildLMa-Skill — a library of generalizable visuomotor skills acquired via imitation learning or an analytical planner, and (3) WildLMa-Planner — an LLM planner that interfaces and coordinates these skills. WildLMa exploits CLIP for language-conditioned imitation learning that empirically generalizes to objects unseen in training demonstrations. We then show these skills can be effectively interfaced with an LLM planner for autonomous long-horizon execution. Besides extensive quantitative evaluation, we qualitatively demonstrate practical robot applications, such as cleaning up trash in university hallways or outdoor terrains, operating articulated objects, and rearranging items on a bookshelf.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </section>
 
 
@@ -511,12 +510,12 @@
 <section class="section" id="BibTeX">
   <div class="container content">
     <h2 class="titile">BibTeX</h2>
-    <pre><code>
-@article{tbd,
-    title={tbd},
-    author={tbd},
-    journal={tbd},
-    year={2024}
+<pre><code>
+@article{qiu-song-peng-2024-wildlma,
+title={WildLMa: Long Horizon Loco-Manipulation in the Wild},
+author={Ri-Zhao Qiu, Yuchen Song, Xuanbin Peng, Sai Aneesh Suryadevara, Ge Yang, Minghuan Liu, Mazeyu Ji, Chengzhe Jia, Ruihan Yang, Xueyan Zou, Xiaolong Wang},
+journal={arXiv preprint arXiv:2411.15131},
+year={2024}
 }
 </code></pre>
   </div>
